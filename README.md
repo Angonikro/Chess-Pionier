@@ -2,6 +2,9 @@
 
 **Chess Pionier** ist ein grafischer Universal-UCI-Schachclient für Linux und Windows.
 
+<img width="1481" height="909" alt="chess" src="https://github.com/user-attachments/assets/21b9c107-0621-45ea-a50b-8ab5dc6b75bd" />
+
+
 ## Funktionen
 
 - ♟️ Mensch gegen Mensch
