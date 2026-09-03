@@ -28,13 +28,41 @@
 
 ## Aktuelle Version
 
-**v0.3.12**
+v0.3.12
+
+## Release
+
+Die aktuelle Version ist als GitHub-Release verfügbar:
+
+Chess Pionier v0.3.12
+
 
 ## Installation
 
 ### Linux
 
-Projektverzeichnis öffnen und die Abhängigkeiten installieren:
+Projekt herunterladen:
 
-```bash
+git clone https://github.com/Angonikro/Chess-Pionier.git
+cd Chess-Pionier
+
+Abhängigkeiten installieren:
+
+chmod +x install_dependencies.sh
 ./install_dependencies.sh
+
+Chess Pionier starten:
+
+chmod +x run_linux.sh
+./run_linux.sh
+
+### Windows
+
+Das Projekt von GitHub herunterladen und entpacken.
+
+Anschließend die benötigten Abhängigkeiten installieren.
+
+Chess Pionier über das Startskript starten:
+
+run_windows.bat
+
