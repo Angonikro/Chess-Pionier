@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#fff8e8"/><stop offset="0.65" stop-color="#b9aa95"/><stop offset="1" stop-color="#6b4a2d"/>
+</linearGradient></defs>
+<ellipse cx="128" cy="220" rx="68" ry="8" fill="#000000" opacity="0.16"/>
+<g fill="url(#g)" stroke="#6b4a2d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+<!-- clear knight body and neck -->
+<path d="M82 205h94l12 25H68z"/>
+<path d="M92 205c8-20 14-38 12-57-2-20-13-39-11-58 2-22 15-42 37-58l25 9 20 24-5 27-20 18c-10 10-13 20-9 33l13 42c3 9 7 14 15 20l5 20H92z"/>
+<!-- horse head, muzzle and ears -->
+<path d="M103 91c-2-20 4-42 18-55l-2-18 17 15 15-18 4 24c16 9 25 23 24 39-1 14-10 24-25 29l-14 5-10-12z"/>
+<path d="M115 48l18 5 13 13-9 12-20-5z" fill="#000" opacity="0.08" stroke="none"/>
+<circle cx="145" cy="59" r="4" fill="#6b4a2d" stroke="none"/>
+<path d="M164 76l15 5-16 7" fill="none"/>
+</g></svg>
