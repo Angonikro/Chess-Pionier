@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Chess Pionier
+Comment=Universal UCI Chess Client
+Exec=/bin/bash /home/pi/Downloads/Chess_Pionier/start_chess_pionier.sh
+Path=/home/pi/Downloads/Chess_Pionier
+Icon=/home/pi/.local/share/icons/chess-pawn.svg
+Terminal=false
+Categories=Game;BoardGame;
+StartupNotify=true
