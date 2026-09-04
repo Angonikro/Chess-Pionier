@@ -4,6 +4,8 @@
 
 Universal UCI Chess Client.
 
+![Chess_Pionier](chess-pionier.png)
+
 ## Aktueller Stand
 
 - Kompaktes Spiel-Layout mit dem **SPIEL/GAME**-Bereich über dem ENGINE MANAGER.
