@@ -24,6 +24,8 @@ Universal UCI Chess Client.
 - Zusätzliche Dialoge verwenden passend zur gewählten Sprache die entsprechenden Schaltflächen (z. B. Öffnen/Speichern/Abbrechen bzw. Open/Save/Cancel).
 - Auch Statusmeldungen, Spielerbezeichnungen, Vorschau-Texte, Sound-Einstellungen und die Schachbrett-/Analyse-Beschriftungen werden bei English vollständig übersetzt.
 
+[Github Seite](https://github.com/Angonikro/Chess-Pionier/)
+
 ## Installation / Start
 
 Nach dem Entpacken:
