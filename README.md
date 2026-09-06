@@ -4,6 +4,11 @@
 
 Universal UCI Chess Client.
 
+![Chess-Pionier](chess-pionier.png)
+
+[Github Seite](https://github.com/Angonikro/Chess-Pionier/)
+
+
 ## Aktueller Stand
 
 - Kompaktes Spiel-Layout mit dem **SPIEL/GAME**-Bereich über dem ENGINE MANAGER.
