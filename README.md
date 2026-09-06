@@ -1,10 +1,8 @@
 # Chess Pionier
 
-**Version 0.3.13**
+**Version 0.3.14**
 
 Universal UCI Chess Client.
-
-![Chess_Pionier](chess-pionier.png)
 
 ## Aktueller Stand
 
@@ -23,8 +21,6 @@ Universal UCI Chess Client.
 - **Sprache:** Deutsch oder English. Die Auswahl wird gespeichert und beim nächsten Start wieder verwendet.
 - Zusätzliche Dialoge verwenden passend zur gewählten Sprache die entsprechenden Schaltflächen (z. B. Öffnen/Speichern/Abbrechen bzw. Open/Save/Cancel).
 - Auch Statusmeldungen, Spielerbezeichnungen, Vorschau-Texte, Sound-Einstellungen und die Schachbrett-/Analyse-Beschriftungen werden bei English vollständig übersetzt.
-
-[Github Seite](https://github.com/Angonikro/Chess-Pionier/)
 
 ## Installation / Start
 
@@ -69,6 +65,20 @@ Eine virtuelle Umgebung ist nicht erforderlich.
 
 ## Aktuelle Version
 
-**0.3.13**
+**0.3.14**
 
 Die Hauptfenster-Geometrie dieser Version bleibt unverändert. Die Sprachumschaltung ändert nur Beschriftungen und Übersetzungen, damit das bisher funktionierende Layout erhalten bleibt.
+
+
+## Windows-Sound
+
+Chess Pionier nutzt `pygame-ce`/SDL2. Unter Windows können in den Sound-Einstellungen
+folgende Audio-Treiber gewählt werden:
+
+- Automatisch (SDL2)
+- WASAPI (Windows)
+- DirectSound (Windows)
+- WinMM (Windows)
+
+Zusätzlich kann das von SDL2 erkannte Ausgabe-Gerät ausgewählt werden.
+Eine `run_windows.bat` ist für den Start nicht erforderlich.

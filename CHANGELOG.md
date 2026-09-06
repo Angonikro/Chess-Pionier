@@ -1,6 +1,17 @@
+# CHANGELOG
+
+## 0.3.14
+
+### Windows-Sound
+- Windows-Audiotreiber WASAPI, DirectSound und WinMM sind fest in der Sound-Auswahl integriert.
+- SDL2-Ausgabegeräte können unter Windows ausgewählt werden.
+- Automatischer SDL2-Fallback bei nicht verfügbarem Treiber.
+- Linux-Audiotreiber bleiben plattformabhängig erhalten.
+- Keine `run_windows.bat` erforderlich.
+
 # Changelog
 
-## 0.3.13
+## 0.3.14
 
 ### Sprache
 - Verbleibende deutsche Beschriftungen im English-Modus entfernt (u. a. Neues Spiel, Zurück, Spiel stoppen, Mensch, Tiefe, Vorschau/Engine-Status und Sound-Einstellungen).
@@ -36,4 +47,4 @@
 - Engines werden nur gestartet, wenn sie benötigt werden.
 
 ## Dokumentation
-- `README.md`, `CHANGELOG.md`, `VERSION` und `version.py` auf **0.3.13** gehalten.
+- `README.md`, `CHANGELOG.md`, `VERSION` und `version.py` auf **0.3.14** gehalten.
