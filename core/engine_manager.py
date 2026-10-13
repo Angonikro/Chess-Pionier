@@ -29,10 +29,8 @@ class EngineManager:
         self.engine: Optional[chess.engine.SimpleEngine] = None
         self._running = False
         self.engines: list[EngineEntry] = []
-        self._config_path = os.path.join(
-            os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-            "engines.json",
-        )
+        from app_paths import ENGINES_FILE
+        self._config_path = str(ENGINES_FILE)
         self.discover_engines()
         self.load_saved_engines()
         if engine_path:
@@ -90,6 +88,7 @@ class EngineManager:
     def save_engines(self) -> None:
         """Persist configured engine entries; never starts an engine."""
         try:
+            os.makedirs(os.path.dirname(self._config_path), exist_ok=True)
             data = [{"name": e.name, "path": e.path} for e in self.engines]
             with open(self._config_path, "w", encoding="utf-8") as fh:
                 json.dump(data, fh, ensure_ascii=False, indent=2)

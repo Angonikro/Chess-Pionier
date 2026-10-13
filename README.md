@@ -1,89 +1,47 @@
 # Chess Pionier
 
-**Version 0.3.14**
+**Version 0.3.15**
 
-Universal UCI Chess Client.
+Universaler UCI-Schachclient mit Spielbrett, Engine-Verwaltung, PGN-Laden/Speichern, Analysefenster, Figuren-/Brettdesigns, Deutsch/Englisch und Soundeinstellungen.
 
-![Chess-Pionier](chess-pionier.png)
-
-[Github Seite](https://github.com/Angonikro/Chess-Pionier/)
-
-
-## Aktueller Stand
-
-- Kompaktes Spiel-Layout mit dem **SPIEL/GAME**-Bereich über dem ENGINE MANAGER.
-- Engine-Liste alphabetisch sortiert.
-- Menschliche Spielernamen können eingegeben werden und erscheinen neben dem Hauptbrett.
-- Beim Speichern einer Partie werden die Spielernamen als `White` und `Black` in die PGN übernommen.
-- „PGN speichern“ ergänzt automatisch die Endung `.pgn`.
-- PGN kann geladen, durch die Züge navigiert und in einem separaten Fenster analysiert werden.
-- Das PGN-Analysefenster bietet Engine-Auswahl, Zeit pro Zug, Fortschritt, Ergebnisse und sicheren Stop.
-- Engines werden nur gestartet, wenn sie benötigt werden.
-- Mensch vs. Mensch, Mensch vs. Engine, Engine vs. Mensch und Engine vs. Engine.
-- Schach, Schachmatt, Patt und Remis werden erkannt.
-- Zwei Engine-Vorschau-Bretter zeigen die aktuelle Hauptvariante Zug für Zug.
-- Spielbrett-Layout und Figuren können geändert werden.
-- **Sprache:** Deutsch oder English. Die Auswahl wird gespeichert und beim nächsten Start wieder verwendet.
-- Zusätzliche Dialoge verwenden passend zur gewählten Sprache die entsprechenden Schaltflächen (z. B. Öffnen/Speichern/Abbrechen bzw. Open/Save/Cancel).
-- Auch Statusmeldungen, Spielerbezeichnungen, Vorschau-Texte, Sound-Einstellungen und die Schachbrett-/Analyse-Beschriftungen werden bei English vollständig übersetzt.
-
-## Installation / Start
-
-Nach dem Entpacken:
+## Installation als Debian-Paket
 
 ```bash
-cd ~/Downloads
-cd Chess_Pionier
+sudo apt install ./chess-pionier_0.3.15_all.deb
+```
+
+Danach kann **Chess Pionier** über das Anwendungsmenü oder mit `chess-pionier` gestartet werden.
+
+## Start aus dem GitHub-Quellcode
+
+```bash
+sudo apt install python3-pyside6.qtwidgets python3-pygame
+./install_dependencies.sh
 python3 main.py
 ```
 
-## Desktop-Starter
+Alternativ die Pakete aus `requirements.txt` in einer eigenen Python-Umgebung installieren.
 
-Einmalig nach dem Entpacken:
+## Speicherorte unter Linux
 
-```bash
-cd ~/Downloads
-cd Chess_Pionier
-chmod +x install_desktop_launcher.sh
-./install_desktop_launcher.sh
-```
+Persönliche Einstellungen werden nicht mehr im Programmordner abgelegt:
 
-Danach kann Chess Pionier über das Desktop-Symbol gestartet werden.
+- Einstellungen (Sprache, Brettdarstellung, Sound): `~/.config/chess-pionier/settings.ini`
+- Gespeicherte Schach-Engines: `~/.config/chess-pionier/engines.json`
+- Für spätere benutzerspezifische Daten: `~/.local/share/chess-pionier/`
 
-Falls beim Entpacken die Ausführungsrechte verloren gegangen sind:
+Die Anwendung übernimmt vorhandene `data/settings.ini` und `engines.json` aus dem bisherigen Programmordner, wenn am neuen Ort noch keine entsprechende Datei existiert. Die alten Dateien werden dabei nicht gelöscht.
 
-```bash
-chmod +x install_desktop_launcher.sh
-```
+PGN-Dateien werden weiterhin an dem Ort gespeichert, den du im Speichern-Dialog auswählst.
 
 ## Abhängigkeiten
 
-Die benötigten Python-Pakete stehen in `requirements.txt`.
+Die Python-Abhängigkeiten stehen in `requirements.txt`. Unter Debian 13 ist `python3-chess` nicht in jeder konfigurierten Paketquelle verfügbar. Deshalb enthält die DEB keine harte Abhängigkeit auf dieses Paket. Für die Schachbibliothek bitte das mitgelieferte Installationsskript verwenden:
 
 ```bash
-cd ~/Downloads
-cd Chess_Pionier
-python3 -m pip install -r requirements.txt
+./install_dependencies.sh
 ```
 
-Eine virtuelle Umgebung ist nicht erforderlich.
+## Lizenz / Projekt
 
-## Aktuelle Version
-
-**0.3.14**
-
-Die Hauptfenster-Geometrie dieser Version bleibt unverändert. Die Sprachumschaltung ändert nur Beschriftungen und Übersetzungen, damit das bisher funktionierende Layout erhalten bleibt.
-
-
-## Windows-Sound
-
-Chess Pionier nutzt `pygame-ce`/SDL2. Unter Windows können in den Sound-Einstellungen
-folgende Audio-Treiber gewählt werden:
-
-- Automatisch (SDL2)
-- WASAPI (Windows)
-- DirectSound (Windows)
-- WinMM (Windows)
-
-Zusätzlich kann das von SDL2 erkannte Ausgabe-Gerät ausgewählt werden.
-Eine `run_windows.bat` ist für den Start nicht erforderlich.
+Chess Pionier – Universal UCI Chess Client.

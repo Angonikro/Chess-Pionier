@@ -1,6 +1,7 @@
 from __future__ import annotations
 from pathlib import Path
 import os
+import sys
 import configparser
 
 class AudioManager:
@@ -16,9 +17,12 @@ class AudioManager:
         "stop": "stop.wav",
     }
 
-    def __init__(self, settings_path="data/settings.ini", sound_dir="assets/sounds"):
+    def __init__(self, settings_path=None, sound_dir="assets/sounds"):
+        if settings_path is None:
+            from app_paths import SETTINGS_FILE
+            settings_path = SETTINGS_FILE
         self.settings_path = Path(settings_path)
-        self.sound_dir = Path(sound_dir)
+        self.sound_dir = Path(__file__).resolve().parent.parent / sound_dir
         self.enabled = True
         self.volume = 0.75
         self.driver = "auto"
@@ -60,24 +64,33 @@ class AudioManager:
         tmp.replace(self.settings_path)
 
     @staticmethod
+    def is_windows():
+        """Return True when Chess Pionier is running on Windows."""
+        return sys.platform.startswith("win") or os.name == "nt"
+
+    @staticmethod
     def available_drivers():
-        choices = ["auto"]
-        try:
-            import pygame
-            # pygame._sdl2 is available in pygame-ce builds with SDL2.
-            drivers = []
-            try:
-                drivers = list(pygame._sdl2.get_audio_device_names(False))
-            except Exception:
-                pass
-            # Keep portable choices; actual initialization decides support.
-        except Exception:
-            pass
-        if os.name == "nt":
-            choices += ["wasapi", "directsound", "winmm"]
-        elif os.name == "posix":
-            choices += ["pipewire", "pulse", "alsa"]
-        return list(dict.fromkeys(choices))
+        """Return SDL2 audio backends supported by the current platform."""
+        choices = [("auto", "Automatisch (SDL2)")]
+
+        if AudioManager.is_windows():
+            choices += [
+                ("wasapi", "WASAPI (Windows)"),
+                ("directsound", "DirectSound (Windows)"),
+                ("winmm", "WinMM (Windows)"),
+            ]
+        elif sys.platform.startswith("linux"):
+            choices += [
+                ("pipewire", "PipeWire (Linux)"),
+                ("pulse", "PulseAudio (Linux)"),
+                ("alsa", "ALSA (Linux)"),
+            ]
+        elif sys.platform == "darwin":
+            choices += [
+                ("coreaudio", "CoreAudio (macOS)"),
+            ]
+
+        return choices
 
     def available_devices(self, driver=None):
         """Return actual SDL2 playback device names for the selected backend."""
@@ -129,6 +142,20 @@ class AudioManager:
             self._mixer_ready = True
             self._load_sounds()
         except Exception:
+            # Keep Chess Pionier usable even if a selected backend is unavailable.
+            if self.driver != "auto":
+                try:
+                    os.environ.pop("SDL_AUDIODRIVER", None)
+                    kwargs = {}
+                    if self.device and self.device != "auto":
+                        kwargs["devicename"] = self.device
+                    pygame.mixer.init(**kwargs)
+                    pygame.mixer.set_num_channels(8)
+                    self._mixer_ready = True
+                    self._load_sounds()
+                    return
+                except Exception:
+                    pass
             self._mixer_ready = False
 
     def _load_sounds(self):

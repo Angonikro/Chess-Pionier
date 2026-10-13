@@ -1298,7 +1298,8 @@ class MainWindow(QMainWindow):
     def load_language(self):
         import configparser
         from pathlib import Path
-        cfg = configparser.ConfigParser(); path = Path("data/settings.ini")
+        from app_paths import SETTINGS_FILE
+        cfg = configparser.ConfigParser(); path = SETTINGS_FILE
         try:
             if path.exists(): cfg.read(path, encoding="utf-8")
         except configparser.Error: pass
@@ -1307,7 +1308,8 @@ class MainWindow(QMainWindow):
     def save_language(self):
         import configparser
         from pathlib import Path
-        path=Path("data/settings.ini"); cfg=configparser.ConfigParser()
+        from app_paths import SETTINGS_FILE
+        path=SETTINGS_FILE; cfg=configparser.ConfigParser()
         try:
             if path.exists(): cfg.read(path, encoding="utf-8")
         except configparser.Error: pass
@@ -1441,7 +1443,8 @@ class MainWindow(QMainWindow):
     def load_appearance(self):
         import configparser
         from pathlib import Path
-        path = Path("data/settings.ini")
+        from app_paths import SETTINGS_FILE
+        path = SETTINGS_FILE
         cfg = configparser.ConfigParser()
         try:
             if path.exists():
@@ -1457,7 +1460,8 @@ class MainWindow(QMainWindow):
     def save_appearance(self):
         import configparser
         from pathlib import Path
-        path = Path("data/settings.ini")
+        from app_paths import SETTINGS_FILE
+        path = SETTINGS_FILE
         cfg = configparser.ConfigParser()
         try:
             if path.exists():
@@ -1554,8 +1558,8 @@ class MainWindow(QMainWindow):
         enabled.setChecked(self.audio.enabled)
 
         driver = QComboBox()
-        for name in self.audio.available_drivers():
-            driver.addItem(name, name)
+        for driver_id, driver_label in self.audio.available_drivers():
+            driver.addItem(driver_label, driver_id)
         idx = driver.findData(self.audio.driver)
         if idx >= 0:
             driver.setCurrentIndex(idx)
@@ -1595,9 +1599,11 @@ class MainWindow(QMainWindow):
         layout.addLayout(form)
 
         info = QLabel(
-            t("Hier werden die echten SDL2-Wiedergabegeräte des Raspberry Pi angezeigt. "
+            t("Unter Windows stehen WASAPI, DirectSound und WinMM zur Verfügung. "
+              "Unter Linux werden die passenden Linux-SDL2-Treiber angeboten. "
               "Nach einer Änderung wird der Audio-Mixer neu gestartet.",
-              "The actual SDL2 playback devices of the Raspberry Pi are shown here. "
+              "Windows provides WASAPI, DirectSound and WinMM. "
+              "Linux provides the matching Linux SDL2 backends. "
               "The audio mixer is restarted after a change.")
         )
         info.setWordWrap(True)
