@@ -4,6 +4,10 @@
 
 Universaler UCI-Schachclient mit Spielbrett, Engine-Verwaltung, PGN-Laden/Speichern, Analysefenster, Figuren-/Brettdesigns, Deutsch/Englisch und Soundeinstellungen.
 
+![Chess-Pionier](chess-pionier.png)
+
+[Github Seite](https://github.com/Angonikro/Chess-Pionier/)
+
 ## Installation als Debian-Paket
 
 ```bash
@@ -45,3 +49,5 @@ Die Python-Abhängigkeiten stehen in `requirements.txt`. Unter Debian 13 ist `py
 ## Lizenz / Projekt
 
 Chess Pionier – Universal UCI Chess Client.
+
+73 de DO2QG Andreas
