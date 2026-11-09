@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="Apib7-x98H0j5CpqHWwSMm6dNU4Gm0DRoqxLiDzdx9I">
-<title>Chess Pionier – Universal UCI Chess Client</title>
+<meta name="description" content="Chess Pionier 0.3.16 – universaler UCI-Schachclient mit Engine-Verwaltung, PGN, Analyse, Brettdesigns und Sound.">
+<title>Chess Pionier 0.3.16 – Universal UCI Chess Client</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#101214;color:#eee;line-height:1.6}
@@ -17,107 +18,99 @@ section{background:#181c1f;border:1px solid #30373b;border-radius:14px;padding:2
 h2{color:#8caf6a;margin-top:0}
 h3{color:#dfe5e7;margin-top:28px}
 .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px 30px;padding-left:20px}
-.code{background:#0b0d0e;border:1px solid #343b3f;border-radius:8px;padding:15px;overflow:auto;font-family:monospace;color:#d9e0e2}
+.code{background:#0b0d0e;border:1px solid #343b3f;border-radius:8px;padding:15px;overflow:auto;font-family:monospace;color:#d9e0e2;white-space:pre-wrap}
 .downloads{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:20px}
 .card{background:#20262a;border:1px solid #394247;border-radius:10px;padding:20px}
 .card strong{font-size:1.1rem}
-a.button{display:inline-block;margin-top:12px;padding:10px 15px;border-radius:7px;background:#7d9f5d;color:#fff;text-decoration:none;font-weight:bold}
+a.button{display:inline-block;margin:8px 8px 0 0;padding:10px 15px;border-radius:7px;background:#7d9f5d;color:#fff;text-decoration:none;font-weight:bold}
 a.button:hover{background:#91b56e}
 .note{color:#b8c0c4}
 footer{text-align:center;color:#8c969b;padding:25px;border-top:1px solid #30373b}
+a{color:#b8d58e}
 </style>
 </head>
 <body>
 <header>
 <h1>♟ CHESS PIONIER</h1>
-<div class="subtitle">Universal UCI Chess Client für Linux und Windows · v0.3.12</div>
+<div class="subtitle">Universaler UCI-Schachclient · Version 0.3.16</div>
 </header>
-
 <main>
 <img class="hero-image" src="chess-pionier.png" alt="Chess Pionier – Universal UCI Chess Client">
 
 <section>
 <h2>Über Chess Pionier</h2>
-<p>Chess Pionier ist ein grafischer Universal-UCI-Schachclient für Linux und Windows.</p>
-<p>Spiele Mensch gegen Mensch, Mensch gegen Engine oder Engine gegen Engine und verwalte mehrere UCI-Schachengines direkt im Engine Manager.</p>
+<p>Chess Pionier ist ein universaler UCI-Schachclient mit grafischer Oberfläche. Die Anwendung verbindet ein Schachbrett mit der Verwaltung und Verwendung von UCI-Schachengines.</p>
+<p>Die aktuelle Version 0.3.16 bietet PGN-Laden und -Speichern, ein Analysefenster, verschiedene Brett- und Figurendarstellungen sowie konfigurierbare Soundeinstellungen.</p>
 </section>
 
 <section>
 <h2>Funktionen</h2>
 <ul class="features">
-<li>♟️ Mensch gegen Mensch</li>
-<li>🤖 Mensch gegen Engine</li>
-<li>🤖 Engine gegen Engine</li>
-<li>Unterstützung für mehrere UCI-Schachengines</li>
-<li>Engine Manager zum Hinzufügen und Entfernen von UCI-Engines</li>
-<li>Anzeige der verwendeten Engine bzw. Spielernamen</li>
-<li>Zwei kleine Engine-Vorschau-Schachbretter</li>
-<li>Schnelle Darstellung der berechneten Varianten Zug für Zug</li>
-<li>Analyseanzeige mit Bewertung, Tiefe und Principal Variation</li>
-<li>Bedenkzeit ab 2 Sekunden</li>
-<li>Schach-, Schachmatt-, Patt- und Remis-Erkennung</li>
-<li>Soundeffekte</li>
-<li>Verschiedene Brett- und Figuren-Sets</li>
+<li>Universaler UCI-Schachclient</li>
+<li>Verwaltung und Konfiguration von UCI-Schachengines</li>
+<li>PGN-Dateien laden und speichern</li>
+<li>Analysefenster</li>
+<li>Verschiedene Brett- und Figurendesigns</li>
+<li>Deutsch- und englischsprachige Oberfläche</li>
+<li>Soundeinstellungen und Soundwiedergabe</li>
+<li>Persönliche Einstellungen für Sprache, Brettdarstellung und Sound</li>
 </ul>
 </section>
 
 <section>
 <h2>Installation & Start</h2>
-<p class="note">Die folgenden Dateien liegen im Chess-Pionier-Projekt. Linux verwendet Shell-Skripte (<code>.sh</code>), Windows eine Batch-Datei (<code>.bat</code>).</p>
-
 <div class="downloads">
 <div class="card">
-<strong>🐧 Linux</strong>
-<p>Projekt herunterladen und anschließend die Abhängigkeiten installieren.</p>
-<div class="code">git clone https://github.com/Angonikro/Chess-Pionier.git
-cd Chess-Pionier
-
-chmod +x install_dependencies.sh
-./install_dependencies.sh</div>
-<p><a class="button" href="install_dependencies.sh">install_dependencies.sh</a></p>
+<strong>🐧 Debian / Linux – DEB-Paket</strong>
+<p>Die einfachste Installation. Die benötigten Debian-Laufzeitpakete werden über die Paketabhängigkeiten automatisch mitinstalliert.</p>
+<div class="code">sudo apt install ./chess-pionier_0.3.16_all.deb</div>
+<p>Nach der Installation kann Chess Pionier über das Anwendungsmenü oder mit folgendem Befehl gestartet werden:</p>
+<div class="code">chess-pionier</div>
 </div>
-
 <div class="card">
-<strong>🪟 Windows</strong>
-<p>Projekt herunterladen und die Startdatei im Projektordner ausführen.</p>
-<div class="code">run_windows.bat</div>
-<p><a class="button" href="run_windows.bat">run_windows.bat</a></p>
+<strong>🧰 Start aus dem Quellcode</strong>
+<p>Unter Debian 13 die Systempakete installieren und anschließend das Programm im Projektordner starten:</p>
+<div class="code">sudo apt install python3-pyside6.qtwidgets python3-pyside6.qtsvg python3-pygame
+python3 -m pip install --user python-chess
+python3 main.py</div>
 </div>
 </div>
+<h3>Alternative: virtuelle Python-Umgebung</h3>
+<p>Die Python-Abhängigkeiten können alternativ in einer eigenen virtuellen Umgebung installiert werden. Dabei wird <code>python-chess</code> über <code>requirements.txt</code> installiert:</p>
+<div class="code">python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python main.py</div>
+</section>
 
-<h3>Linux starten</h3>
-<div class="code">chmod +x run_linux.sh
-./run_linux.sh
+<section>
+<h2>Abhängigkeiten</h2>
+<ul>
+<li><strong>PySide6 (QtWidgets und QtSvg):</strong> grafische Oberfläche</li>
+<li><strong>python-chess:</strong> Schachregeln, Brettstellung, PGN und UCI-Engine-Schnittstelle (manuelle pip-Installation; keine DEB-Abhängigkeit)</li>
+<li><strong>pygame / pygame-ce:</strong> Soundwiedergabe über SDL2</li>
+</ul>
+<p>Bei der DEB-Installation werden die Debian-Pakete <code>python3-pyside6.qtwidgets</code>, <code>python3-pyside6.qtsvg</code> und <code>python3-pygame</code> automatisch als Abhängigkeiten installiert. <strong>python-chess ist keine DEB-Abhängigkeit</strong> und muss nach der Installation manuell eingerichtet werden: <code>python3 -m pip install --user python-chess</code>. Die sieben WAV-Sounddateien werden mit der Anwendung installiert.</p>
+</section>
 
-# alternativ:
-chmod +x start_chess_pionier.sh
-./start_chess_pionier.sh</div>
-<p>
-<a class="button" href="run_linux.sh">run_linux.sh</a>
-<a class="button" href="start_chess_pionier.sh">start_chess_pionier.sh</a>
-</p>
-
-<h3>Linux Desktop-Starter</h3>
-<p>Damit Chess Pionier im Anwendungsmenü erscheint:</p>
-<div class="code">chmod +x install_desktop_launcher.sh
-./install_desktop_launcher.sh</div>
-<p><a class="button" href="install_desktop_launcher.sh">install_desktop_launcher.sh</a></p>
-
-<p class="note"><strong>Hinweis:</strong> Die Installer-/Startdateien müssen zusammen mit dieser Webseite im GitHub-Projekt vorhanden sein, damit die Download-Buttons funktionieren.</p>
+<section>
+<h2>Speicherorte unter Linux</h2>
+<ul>
+<li>Einstellungen (Sprache, Brettdarstellung, Sound): <code>~/.config/chess-pionier/settings.ini</code></li>
+<li>Gespeicherte Schach-Engines: <code>~/.config/chess-pionier/engines.json</code></li>
+<li>Benutzerspezifische Daten: <code>~/.local/share/chess-pionier/</code></li>
+</ul>
+<p>Vorhandene <code>data/settings.ini</code> und <code>engines.json</code> aus dem bisherigen Programmordner werden übernommen, wenn am neuen Speicherort noch keine entsprechenden Dateien vorhanden sind. Die alten Dateien werden dabei nicht gelöscht. PGN-Dateien werden am im Speichern-Dialog ausgewählten Ort abgelegt.</p>
 </section>
 
 <section>
 <h2>Aktuelle Version</h2>
-<p><strong>v0.3.12</strong></p>
-<p><a class="button" href="https://github.com/Angonikro/Chess-Pionier">Chess Pionier auf GitHub</a></p>
-</section>
-
-<section>
-<h2>UCI-Engines</h2>
-<p>Chess Pionier unterstützt mehrere UCI-Schachengines. Über den Engine Manager können UCI-Engines hinzugefügt und entfernt werden.</p>
+<p><strong>Chess Pionier 0.3.16</strong></p>
+<a class="button" href="https://github.com/Angonikro/Chess-Pionier">GitHub-Repository öffnen</a>
+<a class="button" href="https://github.com/Angonikro/Chess-Pionier/blob/main/Chess_Pionier/README.md">README anzeigen</a>
 </section>
 </main>
-
 <footer>© Chess Pionier · Universal UCI Chess Client</footer>
 </body>
 </html>
